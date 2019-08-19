@@ -11,3 +11,7 @@ Hardware untested as of release.<br>
 
 16/08/19 : V1 Hardware built and tested. Software in progress. Latest version uploaded. Works with BMW E46 throttle pedal and sends CAN to E46 body to make dash and other modules work as they should. Still in early alpha. 
 
+
+19/08/19 : Bare PCBs available for those wishing to build their own controller :<br>
+http://www.evbmw.com/index.php/evbmw-webshop/miscellaneous-bare-pcbs/leaf-vcm-bare
+
