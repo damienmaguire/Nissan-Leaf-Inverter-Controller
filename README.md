@@ -15,3 +15,5 @@ Hardware untested as of release.<br>
 19/08/19 : Bare PCBs available for those wishing to build their own controller :<br>
 http://www.evbmw.com/index.php/evbmw-webshop/miscellaneous-bare-pcbs/leaf-vcm-bare
 
+24/08/19 : Testing at full torque : https://www.youtube.com/watch?v=w1eDK8kHOu0
+
