@@ -17,3 +17,6 @@ http://www.evbmw.com/index.php/evbmw-webshop/miscellaneous-bare-pcbs/leaf-vcm-ba
 
 24/08/19 : Testing at full torque : https://www.youtube.com/watch?v=w1eDK8kHOu0
 
+
+24/11/19 : BOM Updated with corrections.
+
