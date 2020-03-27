@@ -20,3 +20,10 @@ http://www.evbmw.com/index.php/evbmw-webshop/miscellaneous-bare-pcbs/leaf-vcm-ba
 
 24/11/19 : BOM Updated with corrections.
 
+27/03/20 : Uploaded new firmware with the following changes :
+
+-Now supports the use of ESP8266 Olimex WiFi module and web display
+
+-Supports ISA 100A CAN based shunt for battery monitoring
+
+-Precharge and main contactor control
