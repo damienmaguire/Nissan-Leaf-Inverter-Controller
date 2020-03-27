@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="highcharts.js"></script>
+    <script src="highcharts-more.js"></script>
+    <script src="solid-gauge.js"></script>
+    <style>
+        .highcharts-figure .chart-container {
+            width: 300px;
+            height: 200px;
+            float: left;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+        @media (max-width: 600px) {
+
+            .highcharts-figure,
+            .highcharts-data-table table {
+                width: 100%;
+            }
+
+            .highcharts-figure .chart-container {
+                width: 300px;
+                float: none;
+                margin: 0 auto;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2></h2>
+    <figure class="highcharts-figure">
+        <div align="center">
+            <h1><span id="heading1"></span></h1>
+        </div>
+        <div id="container-getA" class="chart-container"></div>
+        <div id="container-getB" class="chart-container"></div>
+        <div id="container-getC" class="chart-container"></div>
+        <div id="container-getD" class="chart-container"></div>
+        <div id="container-getE" class="chart-container"></div>
+        <div id="container-getF" class="chart-container"></div>
+    </figure>
+</body>
+
+
+<script>
+    setInterval(function () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var point,
+                    newVal,
+                    inc;
+                if (getA) {
+                    point = getA.series[0].points[0];
+                    inc = parseFloat(this.responseText);
+                    newVal = inc;
+                    point.update(newVal);
+                }
+            }
+        };
+        xhttp.open("GET", "/getA", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var point,
+                    newVal,
+                    inc;
+                if (getB) {
+                    point = getB.series[0].points[0];
+                    inc = parseFloat(this.responseText);
+                    newVal = inc;
+                    point.update(newVal);
+                }
+            }
+        };
+        xhttp.open("GET", "/getB", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var point,
+                    newVal,
+                    inc;
+                if (getC) {
+                    point = getC.series[0].points[0];
+                    inc = parseFloat(this.responseText);
+                    newVal = inc;
+                    point.update(newVal);
+                }
+            }
+        };
+        xhttp.open("GET", "/getC", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var point,
+                    newVal,
+                    inc;
+                if (getD) {
+                    point = getD.series[0].points[0];
+                    inc = parseFloat(this.responseText);
+                    newVal = inc;
+                    point.update(newVal);
+                }
+            }
+        };
+        xhttp.open("GET", "/getD", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var point,
+                    newVal,
+                    inc;
+                if (getE) {
+                    point = getE.series[0].points[0];
+                    inc = parseFloat(this.responseText);
+                    newVal = inc;
+                    point.update(newVal);
+                }
+            }
+        };
+        xhttp.open("GET", "/getE", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var point,
+                    newVal,
+                    inc;
+                if (getF) {
+                    point = getF.series[0].points[0];
+                    inc = parseFloat(this.responseText);
+                    newVal = inc;
+                    point.update(newVal);
+                }
+            }
+        };
+        xhttp.open("GET", "/getF", true);
+        xhttp.send();
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.body.style.backgroundColor = (this.responseText);
+            }
+        };
+        xhttp.open("GET", "/getBGcolor", true);
+        xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("heading1").innerHTML = this.responseText; //print to the web ui
+            }
+        };
+        xhttp.open("GET", "getHeading", true);	//action url of server
+        xhttp.send();
+    }, 1000);
+
+    var gaugeOptions = {
+        chart: {
+            type: 'solidgauge',
+            backgroundColor: 'rgba(0,0,0,0)'
+        },
+        title: null,
+        pane: {
+            center: ['50%', '85%'],
+            size: '140%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor:
+                    Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
+            }
+        },
+        exporting: {
+            enabled: false
+        },
+        tooltip: {
+            enabled: false
+        },
+        // the value axis
+        yAxis: {
+            stops: [
+                [0.1, '#55BF3B'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#DF5353']  // red
+            ],
+            lineWidth: 0,
+            tickWidth: 0,
+            minorTickInterval: null,
+            tickAmount: 2,
+            title: {
+                y: -70
+            },
+            labels: {
+                y: 16
+            }
+        },
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        }
+    };
+
+    //getA
+    var getA = Highcharts.chart('container-getA', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 700,
+            title: {
+                text: 'Pack Voltage'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Pack Voltage',
+            data: [490],
+            dataLabels: {
+                format:
+                    '<div style="text-align:center">' +
+                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:12px;opacity:0.4">V</span>' +
+                    '</div>'
+            },
+            tooltip: {
+                valueSuffix: ' V'
+            }
+        }]
+    }));
+
+    //getB
+    var getB = Highcharts.chart('container-getB', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 1000,
+            title: {
+                text: 'Current'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Current',
+            data: [700],
+            dataLabels: {
+                format:
+                    '<div style="text-align:center">' +
+                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:12px;opacity:0.4">A</span>' +
+                    '</div>'
+            },
+            tooltip: {
+                valueSuffix: ' A'
+            }
+        }]
+    }));
+
+    //getC
+    var getC = Highcharts.chart('container-getC', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 300,
+            title: {
+                text: 'Power'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Power',
+            data: [210],
+            dataLabels: {
+                format:
+                    '<div style="text-align:center">' +
+                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:12px;opacity:0.4">Kw</span>' +
+                    '</div>'
+            },
+            tooltip: {
+                valueSuffix: ' Kw'
+            }
+        }]
+    }));
+
+    //getD
+    var getD = Highcharts.chart('container-getD', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 10000,
+            title: {
+                text: 'Motor RPM'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Motor RPM',
+            data: [7000],
+            dataLabels: {
+                format:
+                    '<div style="text-align:center">' +
+                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:12px;opacity:0.4">RPM</span>' +
+                    '</div>'
+            },
+            tooltip: {
+                valueSuffix: ' RPM'
+            }
+        }]
+    }));
+
+    //getE
+    var getE = Highcharts.chart('container-getE', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: -20,
+            max: 120,
+            title: {
+                text: 'Motor Temp'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Motor Temp',
+            data: [70],
+            dataLabels: {
+                format:
+                    '<div style="text-align:center">' +
+                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:12px;opacity:0.4">&#8451;</span>' +
+                    '</div>'
+            },
+            tooltip: {
+                valueSuffix: ' &#8451;'
+            }
+        }]
+    }));
+
+    //getF
+    var getF = Highcharts.chart('container-getF', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: -20,
+            max: 120,
+            title: {
+                text: 'Inverter Temp'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Inverter Temp',
+            data: [70],
+            dataLabels: {
+                format:
+                    '<div style="text-align:center">' +
+                    '<span style="font-size:25px">{y}</span><br/>' +
+                    '<span style="font-size:12px;opacity:0.4">&#8451;</span>' +
+                    '</div>'
+            },
+            tooltip: {
+                valueSuffix: ' &#8451;'
+            }
+        }]
+    }));
+
+    window.onload = function () {
+
+    };
+</script>
+
+</html>
