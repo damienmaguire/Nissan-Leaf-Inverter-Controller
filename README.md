@@ -27,3 +27,6 @@ http://www.evbmw.com/index.php/evbmw-webshop/miscellaneous-bare-pcbs/leaf-vcm-ba
 -Supports ISA 100A CAN based shunt for battery monitoring
 
 -Precharge and main contactor control
+
+
+22/02/21 : Now starting work on control of the Gen 3 (2018+) Leaf inverter uploaded a CAN log from bench test of the inverter on its own.
